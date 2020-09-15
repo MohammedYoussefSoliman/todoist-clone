@@ -1,0 +1,74 @@
+@mixin box-overlay() {
+    box-shadow: $generic-box-shadow;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 85px;
+    border-radius: 3px;
+}
+
+@mixin va($va-align: center) {
+    display: flex;
+    align-items: center;
+    @if $va-align != center {
+        justify-content: left;
+    } @else {
+        justify-content: center;
+    }
+}
+
+@mixin no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin btn($width) {
+    width: $width;
+    background: $generic-bg-color;
+    color: $white;
+    border: 1px solid transparent;
+    margin-right: 5px;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 17px;
+    white-space: nowrap;
+    border-radius: 3px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+@mixin cancel {
+    color: $dark-grey;
+    font-size: 14px;
+    margin: 2px 5px;
+    cursor: pointer;
+}
+
+@mixin task-item {
+    list-style-type: none;
+    display: flex;
+    line-height: 18px;
+    color: $dark-grey;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 10px 0 10px 10px;
+    cursor: pointer;
+    &:hover {
+        background: #f9f9f9;
+    }
+}
+
+@mixin mq($form) {
+    @media (max-width: $form) {
+        @content
+    }
+}

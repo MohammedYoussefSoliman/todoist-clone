@@ -1,0 +1,102 @@
+@import '../../../scss/utils/mixins';
+@import '../../../scss/utils/variables';
+
+.sidebar {
+    @include no-select;
+    position: fixed;
+    overflow: hidden;
+    width: 266px;
+    padding-top: 24px;
+    height: calc(100vh - 50px);
+    border-right: $generic-border;
+    background: #fafafa;
+    @include mq('900px') {
+        display: none;
+    }
+    .sidebar__generic {
+        &--item {
+            padding: 0 15px 0 10px;
+            &:hover .sidebar__project-del {
+                display: block;
+            }
+        }
+    }
+    &__projects {
+        padding-left: 3px;
+    }
+    &__dot {
+        margin-right: 10px;
+        font-size: 30px;
+        &:nth-child(1) {
+            color: #6accbc;
+        }
+        &:nth-child(2) {
+            color: #fad003;
+        }
+        &:nth-child(3) {
+            color: #ff8d85;
+        }
+        &:nth-child(4) {
+            color: #ff9932;
+        }
+        &:nth-child(5) {
+            color: #af38eb;
+        }
+    }
+    &__project {
+        @include va('left');
+        padding: 5px 0;
+        cursor: pointer;
+        &-del {
+            display: none;
+            svg {
+                color: #cacaca;
+            }
+            &.active, &:hover {
+                font-weight: 700;
+                background: $white;
+            }
+        }
+    }
+    &__middle {
+        margin: 20px 0;
+        display: flex;
+        border-bottom: $generic-border;
+        padding-left: 10px;
+        cursor: pointer;
+        span {
+            color: #0000008a;
+            margin-right: 10px;
+            svg.hidden-projects {
+                transform: rotate(-90deg);
+            }
+        }
+        h2 {
+            margin: 0;
+            color: $dark-grey;
+            font-size: 15px;
+            font-weight: 700;
+            padding-bottom: 20px;
+        }
+    }
+    &__generic--item {
+        padding: 10px 0 10px 10px;
+        color: $dark-grey;
+        display: flex;
+        line-height: 1.5;
+        font-size: 15px;
+        cursor: pointer;
+        span:first-of-type {
+            margin-right: 10px;
+            svg {
+                width: 18px;
+                height: 18px;
+                color: #555;
+            }
+        }
+        &.active, &:hover {
+            font-weight: 700;
+            background: $white;
+        }
+    }
+}
