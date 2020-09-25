@@ -1,3 +1,11 @@
+@import '../../../scss/utils/mixins';
+@import '../../../scss/utils/variables';
+
 .content {
-    margin-top: 50px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+    max-width: 922px;
+    margin: auto;
+
 }

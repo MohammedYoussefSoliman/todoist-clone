@@ -3,12 +3,15 @@ import React from 'react';
 import './App.module.scss';
 import {Header} from './components/layout/header/header';
 import {Content} from './components/layout/content/content';
+import {ProjectsProvider, SelectedProjectProvider} from './context';
 
 export const App = ()=> {
   return (
-    <>
-      <Header />
-      <Content />
-    </>
+    <SelectedProjectProvider>
+      <ProjectsProvider>
+        <Header />
+        <Content />
+      </ProjectsProvider>
+    </SelectedProjectProvider>
   )
 }

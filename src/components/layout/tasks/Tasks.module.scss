@@ -1,0 +1,30 @@
+@import '../../../scss/utils/mixins';
+@import '../../../scss/utils/variables';
+
+.tasks {
+    width: 656px;
+    background: $white;
+    border-right: $generic-border;
+    min-height: calc(100vh);
+    vertical-align: top;
+    padding: 80px 40px;
+    @include mq('900px') {
+        margin-left: 0;
+        width: auto;
+    }
+    h2 {
+        font-size: 20px;
+        margin: 0 30px 20px 0;
+    }
+    .add-task {
+        margin-top: 20px;
+    }
+    &__list li {
+        display: flex;
+        line-height: 18px;
+        color: $dark-grey;
+        padding: 10px 0;
+        font-size: 14px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+}

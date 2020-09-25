@@ -3,7 +3,6 @@
 
 .sidebar {
     @include no-select;
-    position: fixed;
     overflow: hidden;
     width: 266px;
     padding-top: 24px;
@@ -60,12 +59,14 @@
     }
     &__middle {
         margin: 20px 0;
-        display: flex;
         border-bottom: $generic-border;
         padding-left: 10px;
+        width: 100%;
+        @include va('left');
         cursor: pointer;
+        padding-bottom: 16px;
         span {
-            color: #0000008a;
+            color: $dark-grey;
             margin-right: 10px;
             svg.hidden-projects {
                 transform: rotate(-90deg);
@@ -74,9 +75,9 @@
         h2 {
             margin: 0;
             color: $dark-grey;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
-            padding-bottom: 20px;
+            text-transform: capitalize;
         }
     }
     &__generic--item {

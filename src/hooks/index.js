@@ -12,7 +12,7 @@ export const useTasks = selectedProject => {
 
 
     useEffect(()=>{
-        let unsubscribe = firebase.firestore().collection('tasks').where('userId', '==', userId); // this will return true or false
+        let unsubscribe = firebase.firestore().collection('tasks').where('userId', '==', userId); // this will return tasks of correspondence user id
         
         //unsubscribe logic
 
@@ -30,6 +30,7 @@ export const useTasks = selectedProject => {
         }else if(selectedProject === 'INBOX' || selectedProject === '0') {
             unsubscribe = unsubscribe.where('date', '==', '')
         }
+        // now unsubscribe carries the correct data
 
         unsubscribe = unsubscribe.onSnapshot(snapshot => {
             const newTasks = snapshot.docs.map(task =>({
@@ -48,11 +49,12 @@ export const useTasks = selectedProject => {
 
     }, [selectedProject])
 
+
     return {tasks, archivedTasks}
 }
 
 export const useProjects = ()=> {
-    const [projects, setProjects] = useState({});
+    const [projects, setProjects] = useState([]);
 
     useEffect(()=>{
         firebase.firestore().collection('project').where('userId', '==', userId).orderBy('projectId').get().then(snapshot =>{
