@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import scss from './Tasks.module.scss';
 import {Checkbox} from '../../ui/checkbox/checkbox';
+import {AddTask} from '../AddTask/addTask';
 import {useTasks} from '../../../hooks';
 import {getTitle, getCollatedTitle, collatedTasksExist} from '../../../helpers';
 import {collatedTasks} from '../../../helpers/constants';
@@ -39,6 +40,7 @@ export const Tasks = () => {
                     </li>
                 ))}
             </ul>
+            <AddTask />
         </div>
     )
 }
